@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from typing import Tuple, List, Dict, Callable, NewType, Any
+from typing import Tuple, List, Dict, Callable, NewType, Set, Any
 from collections import OrderedDict, defaultdict
 
 from pypm import metrics, signals, data_io
@@ -337,12 +337,12 @@ class PortfolioHistory(object):
     @property
     def final_cash(self):
         self._assert_finished()
-        return self.cash_series[-1]
+        return self.cash_series.iloc[-1]
 
     @property
     def final_equity(self):
         self._assert_finished()
-        return self.equity_series[-1]
+        return self.equity_series.iloc[-1]
 
     _PERFORMANCE_METRICS_PROPS = [
         'percent_return',

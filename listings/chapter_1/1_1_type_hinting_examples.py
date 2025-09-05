@@ -48,4 +48,7 @@ ticker: StockTicker = 'AAPL'
 # Functions can define input and return types
 def convert_to_string(value: Any) -> str:
     return str(value)
+
+print(v)
+print(convert_to_string(123))
     

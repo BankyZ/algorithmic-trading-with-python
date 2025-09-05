@@ -24,7 +24,7 @@ def bind_simulator(**sim_kwargs) -> Callable:
     def bootstrap_rolling_sharpe_ratio(return_series: pd.Series) -> pd.Series:
         _series = return_series.iloc[1:]
         _series = _series.sample(n=return_series.shape[0], replace=True)
-        _series.iloc[:1] = [np.nan]
+        _series.iloc[0] = [np.nan]
         _series = pd.Series(_series.values, index=return_series.index)
         _windowed_series = _series.rolling(sharpe_n)
         return _windowed_series.mean() / _windowed_series.std()
